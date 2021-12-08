@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<suite name="testproj" parallel="false">
+    <test name="testController">
+        <groups>
+            <run>
+                <include name="groupAbnormal" />
+                <exclude name="groupCorrect" />
+            </run>
+        </groups>
+    </test>
+</suite>
