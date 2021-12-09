@@ -1,7 +1,7 @@
 # Rquirement
 1. Collect Wind farm data from PMSAgnet, the data is time series based. Design the time series data structure for them, save to time series database and processing, provide statistic API for FrontEnd.
 2. Wind farm location design function: given an area and wind farm types, **modelling** and design your own **algorithm** to choose best location for these wind farms.
-
+![](./docs/images/windfarm.jpg)
 # Analysis & Design
 1. Time Series Data Collect function: 
     + Read the wind farm real-time data from PMSAgent and save to **Time Series Database**. 
