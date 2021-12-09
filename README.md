@@ -211,9 +211,18 @@ List<GridPower> sortedGridPowerList = originalGridPowerList.stream().sorted(Comp
 The stream().sorted() method is used here. Comparator.comparing is sorted from small to large, so .reversed() is called again. The writing method is complicated, it is recommended to copy in the future
 
 2) Select the grid with the largest power.  
-3) Then see if the grid with the second largest power generation meets the distance requirement ( only need (x1-x2)*unit <x_min and (y1-y2)*unit < y_min, because the x minimum spacing and y minimum spacing are independent ). If satisfied, selected; if not, skip it.
+![](./docs/images/1.png)  
+E.g., choose grid 998 largest power number
+3) Then see if the grid with the second largest power generation meets the distance requirement ( only need sqrt( (x1-x2)^2 + (y1-y2)^2 ) * unit < min_distance. If satisfied, selected; if not, skip it.  
+![](./docs/images/2.png)  
+E.g., above grid 996 meet minimum distance requirement, choose it
 4) Then use same rule to check next grid in the sorted list, if it meets the distance requirements from the previous selected grid, selected; if not, skip it.  
-5) Repeat previous step until the total number of wind farms required.
+![](./docs/images/3.png)  
+E.g., above grid 993 does not meet minimum distance requirement, skip it  
+![](./docs/images/4.png)  
+E.g., then next grid 993 meet minimum distance requirement, choose it
+5) Repeat previous step until the total number of wind farms required.  
+
 
 # FrontEnd Demo
 I need provide a demo to FrontEnd team, they will work on it fianlly. I choose the popular **Angular** framework. It use typescript as main develop language. To start Angular project, use command:
