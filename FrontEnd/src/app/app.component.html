@@ -9,11 +9,12 @@
     <label>功率范围:&nbsp;</label><input type="number" [(ngModel)]="minPower" id="minPower" style="width: 50px;">-
     <input type="number" [(ngModel)]="maxPower" id="maxPower" style="width: 50px;">
     <button class="btn-primary" (click)="onClickGenerateRandomPower()" style="margin:5px 20px 5px 5px">生成随机功率值</button>
-    &nbsp;&nbsp;
+    &nbsp;&nbsp;<br>
     <label for="select1">方案: &nbsp;</label>
     <select #select1 style="width: 160px;" id="select1" (change)="onChangeSolution()"></select>
     <button class="btn-primary" (click)="onClickPost('2MW')" style="margin:5px 10px 5px 15px">2MW风机</button>
     <button class="btn-primary" (click)="onClickPost('3MW')" style="margin:5 0px">3MW风机</button>
+    <button class="btn-primary" (click)="onDemo()" style="margin:5 0px">Test</button>
   </div>
   <div class="row" style=" background: lightblue;">
     <canvas #canvas1 width="820px" height="620px" style="background: #fff; margin:20px"></canvas>

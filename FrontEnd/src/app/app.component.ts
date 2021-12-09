@@ -37,6 +37,8 @@ export class AppComponent implements AfterViewInit {
   private girdPowers : GridPower[];
   private solutions: GridPower[][];
 
+  private localTest = false;
+
   postData = {
     test: 'mycontent',
   };
@@ -46,6 +48,10 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.context = (this.canvas1.nativeElement as HTMLCanvasElement).getContext('2d');
+    if(this.localTest) {
+      this.gridNumberX = 20;
+      this.gridNumberY = 13;
+    }
     this.drawGrid();
   }
 
@@ -85,6 +91,7 @@ export class AppComponent implements AfterViewInit {
     this.context.beginPath();
     this.context.arc(xCenter, yCenter, this.radius, 0, 2*Math.PI);
     this.context.closePath();
+    this.context.globalAlpha = 0.5;
     this.context.fillStyle = this.fillColor;
     this.context.fill();
   }
@@ -112,6 +119,7 @@ export class AppComponent implements AfterViewInit {
       }
     }
     //this.powerArray = powers.join(",");
+    this.sortedArray = [];
   }
 
   onClickPost(turbineType: string) {
@@ -172,5 +180,31 @@ export class AppComponent implements AfterViewInit {
     this.girdPowers.forEach(gridPower => {
       this.drawText(gridPower.X, gridPower.Y, gridPower.power.toString());
     })
+  }
+
+  onDemo() {
+    if(this.localTest) {
+      this.demoShow();
+      return;
+    }
+  }
+
+  demoIndex = 0;
+  sortedArray: GridPower[]
+  demoShow() {
+    if (this.sortedArray == null || this.sortedArray.length == 0) {
+      this.demoIndex = 0;
+      this.sortedArray = this.girdPowers.sort((n1, n2) => { return n1.power > n2.power ? -1 : 1 });     //lambda exression
+      /*this.sortedArray = this.girdPowers.sort((n1, n2) => {
+        if(n1.power > n2.power)
+          return -1;
+        else if(n1.power < n2.power)
+          return 1;
+
+        return 0;
+      });*/
+    }
+    this.drawCircle(this.sortedArray[this.demoIndex].X, this.sortedArray[this.demoIndex].Y);
+    this.demoIndex++;
   }
 }
