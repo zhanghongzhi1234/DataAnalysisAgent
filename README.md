@@ -56,7 +56,7 @@ RollupTask has the following steps:
 2) reindex all data from original indices to achiveindex
 3) delete old data in original indices to optimize rollup speed
 
-## ES CRUD
+## ElasticSearch Rest Client CRUD
 ### Create Index
 Create Index by PostMan:  
 Post to http://10.4.62.59:9200/windspeed1
@@ -98,7 +98,8 @@ Note that when using RangeQuery for timestamp, the lt, gt, lte, gte, to, from fu
 If the endTime here only has yyyy-MM-dd but not HH-mm-ss, the query will give strange results, traps
 RangeQuery, using lt, gt is more explicit than to, from, it is recommended to use lt, gt, etc.
 
-### ES query, 
+### ElasticSearch Query
+**Term Query, Bool Query and Aggregation Query**  
 where condition uses TermQuery, multiple condition query, use BoolQuery to connect TermQuery, if you need to group the results, use AggregationQuery, the above query is written in exactly the same way.
 ````java
         SearchRequest searchRequest = new SearchRequest(indics);
@@ -188,7 +189,7 @@ This is very strange. In addition, there are other operations on Index. Note tha
 
 For various requests, you only need to know that ES can complete these functions, and come back when you use them in the future.
 
-## Wind farm location selection algorithm
+## Wind Farm Location Selection Algorithm
 The algorithm for wind power location selection is very complicated, and what you can achieve by yourself is not necessarily the best one. Just figure out the standards.
 Input parameters:
 1) The power generation and size of each grid (50m), the number of grids in X and Y directions (198*134)
