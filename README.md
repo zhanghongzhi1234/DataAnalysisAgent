@@ -1,16 +1,16 @@
 # Rquirement
-1. Time Series Data extract and save function: Design time series data structure for wind farm, save to time series database and processing
+1. Collect Wind farm data from PMSAgnet, the data is time series based. Design the time series data structure for them, save to time series database and processing, provide statistic API for FrontEnd.
 2. Wind farm location design function: given an area and wind farm types, **modelling** and design your own **algorithm** to choose best location for these wind farms.
 
 # Analysis & Design
-1. Time Series Data extract and save function: 
+1. Time Series Data Collect function: 
     + Read the wind farm real-time data from PMSAgent and save to **Time Series Database**. 
     + Provide interface to FrontEnd **BI** for statistic. 
     + We use **OpenTsDB** in before, now change to **ElasticSearch**, because ES is better than opentsdb in terms of statistics. 
     + Data structure is datapointname + value + timestamp. 
     + Function inlclude statistic by hour, day, month and year
 2. Rollup function:  
-If each wind farm create an index in ElasticSearch, take 30 wind farm for example, each wind farm 30 datapoint, collect data each second, there will be 30*200*3600*24=518400000 data, around 500 million per day. So much design rollup function.
+If each wind farm create an index in ElasticSearch, take 30 wind farm for example, each wind farm 30 datapoint, collect data each second, there will be 30*200*3600*24=518400000 data, around 500 million records per day. So much design rollup function.
 3. Wind farm location design function:  
     + There are 2 types of wind farm: 2MW and 3MW, their minimum spacing in X and Y is different
     + Use 50 * 50 meters grid in model, each grid contain only 1 wind fram
