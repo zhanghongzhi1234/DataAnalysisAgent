@@ -212,7 +212,10 @@ The stream().sorted() method is used here. Comparator.comparing is sorted from s
 5) Repeat previous step until the total number of wind farms required.
 
 # FrontEnd Demo
-I need provide a demo to FrontEnd team, they will work on it fianlly. I choose the popular **Angular** framework. It use typescript as main develop language. Below is main file description:
+I need provide a demo to FrontEnd team, they will work on it fianlly. I choose the popular **Angular** framework. It use typescript as main develop language. To start Angular project, use command:
++ $ ng server  
+
+Below is main file description:
 ## app.gridpower.ts  
 Define class GridPower and array GridPowers for selected grid.
 ## app.locationmodel.ts  
