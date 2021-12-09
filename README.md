@@ -99,7 +99,10 @@ If the endTime here only has yyyy-MM-dd but not HH-mm-ss, the query will give st
 RangeQuery, using lt, gt is more explicit than to, from, it is recommended to use lt, gt, etc.
 
 ### ElasticSearch Query
-**Term Query, Bool Query and Aggregation Query**  
++ Term Query
++ Bool Query
++ Aggregation Query  
+
 where condition uses TermQuery, multiple condition query, use BoolQuery to connect TermQuery, if you need to group the results, use AggregationQuery, the above query is written in exactly the same way.
 ````java
         SearchRequest searchRequest = new SearchRequest(indics);
